@@ -1,6 +1,11 @@
-const { Pool } = require('pg');
+import { Pool } from 'pg';
+import path from 'path';
 
-const PG_URI = 'postgresql://postgres:ashley-sabrina-crud@db.riwromruvhgnwgihmtma.supabase.co:5432/postgres';
+// importing the .env file in order to use the connection URI
+import dotenv from 'dotenv'
+dotenv.config({ path: path.resolve(__dirname, './.env') })
+
+const PG_URI = process.env.PG_URI
 
 // create a new pool here using the connection string above
 const pool = new Pool({
