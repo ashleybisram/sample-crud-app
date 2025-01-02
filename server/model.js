@@ -14,10 +14,11 @@ const pool = new Pool({
 
 // The database is a To-Do list for a user to keep track of their daily tasks.
 
-// We export an object that contains a property called query,
-// which is a function that returns the invocation of pool.query() after logging the query
-// This will be required in the controllers to be the access point to the database
-module.exports = {
+/* We export an object that contains a property called query,
+which is a function that returns the invocation of pool.query() after logging the query
+This will be required in the controllers to be the access point to the database **/
+
+export default {
   query: (text, params, callback) => {
     // log the query being executed for debugging purposes
     console.log('executed query', text);

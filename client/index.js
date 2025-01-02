@@ -14,7 +14,6 @@ body.append(heading);
 // Create functionality to access the server endpoints that READ the DB
 const table = document.createElement("table");
 const tableBody = document.createElement("tbody");
-body.append(table);
 
 const task = document.createElement("th");
 task.innerText = "Task";
@@ -25,8 +24,11 @@ completion.innerHTML("Completed?");
 const deadline = document.createElement("th");
 deadline.innerText("Deadline");
 
+// adding multiple child elements to the table
 table.append(task, completion, deadline);
+body.append(table);
 
+// refactor to use Fragments  
 function readDB() {
   // access server endpoint that queries the DB
 
@@ -48,15 +50,17 @@ function readDB() {
   });
 }
 
+body.append(tableBody);
+
 // DELETE from the DB, 
-// for example if the user clicks a delete button?
+// for example if the user clicks a delete button? NEED TO CREATE SERVER LOGIC
 // https://www.youtube.com/watch?v=IWRS_AM2fiE&t=313s
 
 function deleteTask(event){
 
 }
 
-// CREATE TO DB
+// CREATE TO DB--> NEED TO CREATE SERVER LOGIC
 
 function addTask(event){
 
@@ -80,7 +84,7 @@ form.append(submit);
 form.addEventListener("submit", addTask);
 body.append(form); // place the form element inside <body>
 
-// UPDATE DB with if the task has been completed
+// UPDATE DB with if the task has been completed --> NEED TO CREATE SERVER LOGIC
 function updateDeadline(event){
     // figure out what the event shall target
     event.target.id;
